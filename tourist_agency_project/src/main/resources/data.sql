@@ -12,4 +12,4 @@ INSERT INTO PROJECT (name, deadline) VALUES ('Podizanje sistema', '2019-05-1');
 
 INSERT INTO WORKING (project_id, employee_id) VALUES (1, 1);
 INSERT INTO WORKING (project_id, employee_id) VALUES (1, 2);
-INSERT INTO WORKING (project_id, employee_id) VALUES (2, 3);*/
+INSERT INTO WORKING (project_id, employee_id) VALUES (2, 3);   */
