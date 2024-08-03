@@ -68,4 +68,9 @@ public class TouristPackage {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Traveler traveler;
 
+    @OneToMany(mappedBy = "touristPackage", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private  Set<Reservation> reservations;
+
+
+
 }

@@ -55,5 +55,14 @@ public class Reservation {
 
     private Payment payment;
 
-    //korisnik id, paket id
+    //DODATI KORISNIKU REERVACIJU
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private User user;
+
+    //jedan turisticki paket ima vise rezervacija
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private TouristPackage touristPackage;
+
+
+
 }
