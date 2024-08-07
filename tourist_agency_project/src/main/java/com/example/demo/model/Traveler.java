@@ -1,12 +1,10 @@
 package com.example.demo.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,8 +12,8 @@ import java.util.Set;
 @Setter
 public class Traveler extends  User{
 
-    @OneToMany(mappedBy = "traveler", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<TouristPackage> reservedPackages;
+    @ManyToMany(mappedBy = "traveler", fetch = FetchType.LAZY)
+    private Set<TouristPackage> touristPackages=new HashSet<>();
 
 
 }

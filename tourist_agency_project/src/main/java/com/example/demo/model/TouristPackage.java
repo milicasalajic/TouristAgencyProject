@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -65,8 +66,17 @@ public class TouristPackage {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Organizer organizer;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Traveler traveler;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "traveler_touristPackage",
+            joinColumns = {
+                    @JoinColumn(name = "traveler_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "touristPackage_id", referencedColumnName = "id")
+            }
+    )
+    private Set<Traveler> traveler=new HashSet<>();
 
     @OneToMany(mappedBy = "touristPackage", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private  Set<Reservation> reservations;

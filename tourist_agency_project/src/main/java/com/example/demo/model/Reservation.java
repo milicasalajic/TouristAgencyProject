@@ -22,7 +22,8 @@ public class Reservation {
     @Column
     private Date dateOfReservation;
 
-    @Column
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private ReservationStatus reservationStatus;
 
     @Column

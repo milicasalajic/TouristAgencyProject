@@ -11,6 +11,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
+@Table(name = "app_user")
 public class User {
 
     @Id
@@ -47,4 +48,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
+
+
 }
