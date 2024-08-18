@@ -11,7 +11,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
-@Table(name = "app_user")
+@Table(name = "App_user")
 public class User {
 
     @Id
@@ -22,7 +22,7 @@ public class User {
     private String name;
 
     @Column
-    private String surname;
+    private String lastName;
 
     @Column(nullable = false)
     private String username;
@@ -46,7 +46,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userWhoMadeTheReservation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
 
 

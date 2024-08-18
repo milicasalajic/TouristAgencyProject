@@ -33,7 +33,7 @@ public class Reservation {
     private String passengerName;
 
     @Column(nullable = false)
-    private String passengerSurname;
+    private String passengerLastName;
 
     @Column(nullable = false)
     private String passengerEmail;
@@ -42,7 +42,7 @@ public class Reservation {
     private String passengerNumber;
 
     @Column(nullable = false)
-    private String passengerJMBG;
+    private String passengerJmbg;
 
     @Column(nullable = false)
     private String placeOfResidence;
@@ -52,15 +52,16 @@ public class Reservation {
 
     @ElementCollection
     @CollectionTable(name = "other_emails", joinColumns = @JoinColumn(name = "reservation_id"))
+    @Column(name = "email")
     private Set<String> otherEmails;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Payment payment;
 
-    //DODATI KORISNIKU REERVACIJU
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private User user;
+    private User userWhoMadeTheReservation;
 
-    //jedan turisticki paket ima vise rezervacija
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private TouristPackage touristPackage;
 
