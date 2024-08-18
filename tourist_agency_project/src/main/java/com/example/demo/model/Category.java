@@ -18,6 +18,13 @@ public class Category {
     @Column(nullable = false)
     private String categoryName;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_category_id")
+    private Category parentCategory;
+
+    @OneToMany(mappedBy = "parentCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Category> subcategories;
+
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<TouristPackage> touristPackages;
 }

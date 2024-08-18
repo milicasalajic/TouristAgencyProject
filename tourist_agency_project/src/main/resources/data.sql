@@ -43,28 +43,53 @@ INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_s
     VALUES (5000, 10 , '2024-07-18',  'CONFIRMED', 100000, 'Petar', 'Pekic', 'petar@example.com', '0659148244', '182435133445', 'Beograd'
        , 'Beograd', 'PAYMENT_SLIP', 5000);
 
+
 INSERT INTO other_emails(reservation_id, email)
     VALUES
         (1000, 'misa@example.com'),
         (1000, 'pera@example.com'),
         (1000, 'stojkovic@example.com');
 INSERT INTO other_emails(reservation_id, email)
-VALUES
-    (2000, 'milica@example.com'),
-    (2000, 'tamara@example.com'),
-    (2000, 'stefan@example.com');
+    VALUES
+        (2000, 'milica@example.com'),
+        (2000, 'tamara@example.com'),
+        (2000, 'stefan@example.com');
 INSERT INTO other_emails(reservation_id, email)
-VALUES
-    (3000, 'misa@example.com'),
-    (3000, 'pera@example.com'),
-    (3000, 'stojkovic@example.com');
+    VALUES
+        (3000, 'misa@example.com'),
+        (3000, 'pera@example.com'),
+        (3000, 'stojkovic@example.com');
 INSERT INTO other_emails(reservation_id, email)
-VALUES
-    (4000, 'marina@example.com'),
-    (4000, 'anastasia@example.com'),
-    (4000, 'peric@example.com');
+    VALUES
+        (4000, 'marina@example.com'),
+        (4000, 'anastasia@example.com'),
+        (4000, 'peric@example.com');
 INSERT INTO other_emails(reservation_id, email)
-VALUES
-    (4000, 'stojke@example.com'),
-    (4000, 'darko@example.com'),
-    (4000, 'mile@example.com');
+    VALUES
+        (4000, 'stojke@example.com'),
+        (4000, 'darko@example.com'),
+        (4000, 'mile@example.com');
+
+/*
+INSERT INTO Category(id, category_name)
+    VALUES (1000, 'Summer');
+INSERT INTO Category(id, category_name)
+    VALUES (2000, 'Cruise');
+INSERT INTO Category(id, category_name)
+    VALUES (3000, 'European cities');
+INSERT INTO Category(id, category_name)
+    VALUES (4000, 'Winter');
+INSERT INTO Category(id, category_name)
+    VALUES (5000, 'Distant destinations');
+*/
+INSERT INTO Category(id, category_name) VALUES (1000, 'Summer');
+INSERT INTO Category(id, category_name) VALUES (2000, 'Cruise');
+INSERT INTO Category(id, category_name) VALUES (3000, 'European cities');
+INSERT INTO Category(id, category_name) VALUES (4000, 'Winter');
+INSERT INTO Category(id, category_name) VALUES (5000, 'Distant destinations');
+
+
+INSERT INTO Category(id, category_name, parent_category_id) VALUES (1001, 'Greece', 1000);
+INSERT INTO Category(id, category_name, parent_category_id) VALUES (1002, 'Italy', 1000);
+INSERT INTO Category(id, category_name, parent_category_id) VALUES (1003, 'Montenegro', 1000);
+INSERT INTO Category(id, category_name, parent_category_id) VALUES (2001, 'Mediterranean cruise', 2000);
