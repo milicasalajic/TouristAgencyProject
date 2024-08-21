@@ -11,6 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Table(name = "Tourist_package")
 public class TouristPackage {
 
     @Id
@@ -20,11 +21,12 @@ public class TouristPackage {
     @Column(nullable = false)
     private String PackageName;
 
+    @Lob//longer text
     @Column
     private String PackageDescription;
 
     @Column(nullable = false)
-    private Integer tame;
+    private Integer time;
 
     @Column
     private Date dateOffDeparture;
@@ -40,12 +42,13 @@ public class TouristPackage {
 
     @ElementCollection
     @CollectionTable(name = "picturesOfTheDestination", joinColumns = @JoinColumn(name = "package_id"))
+    @Column(name = "destination_picture")
     private Set<String> PicturesOfTheDestination;
 
     @Column
     private String schedule;
 
-    @Column
+    @Column(nullable = true)
     private String travelNotes;
 
     @Column
