@@ -47,7 +47,7 @@ public class Reservation {
     @Column(nullable = false)
     private String placeOfResidence;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String placeOfEntryIntoTheBus;
 
     @ElementCollection

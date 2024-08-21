@@ -45,6 +45,7 @@ public class TouristPackage {
     @Column(name = "destination_picture")
     private Set<String> PicturesOfTheDestination;
 
+    @Lob//longer text
     @Column
     private String schedule;
 
