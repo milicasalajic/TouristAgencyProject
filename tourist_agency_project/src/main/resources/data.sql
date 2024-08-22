@@ -88,29 +88,29 @@ INSERT INTO traveler_tourist_package(traveler_id, tourist_package_id) VALUES (70
 
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
-                     place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id )
+                     place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id )
     VALUES (1000, 3 , '2024-07-28',  'ON_HOLD', 15000, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
-       , 'Beograd', 'PAYMENT_SLIP', 4000);
+       , 'Beograd', 'PAYMENT_SLIP', 4000,1000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
-                     place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id )
+                     place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id  )
     VALUES (2000, 3, '2024-08-10',  'CONFIRMED', 15000, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
-       , 'Beograd', 'PAYMENT_SLIP', 4000);
+       , 'Beograd', 'PAYMENT_SLIP', 4000, 1000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                     , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
-                    place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id )
+                    place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id  )
     VALUES (3000, 3 , '2024-07-28',  'REJECTED', 20000, 'Aleksa', 'Aleksic', 'aleksa@example.com', '065914823', '182435142555', 'Sombor'
-       , 'Novi Sad', 'PAYMENT_CARD', 6000);
+       , 'Novi Sad', 'PAYMENT_CARD', 6000,2000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                     , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence
-                    , payment, user_who_made_the_reservation_id )
+                    , payment, user_who_made_the_reservation_id, tourist_package_id  )
     VALUES (4000, 4 , '2024-07-20',  'CONFIRMED', 100000, 'Maja', 'Maric', 'maja@example.com', '0659148211', '180235142445', 'Jagodina'
-       , 'PAYMENT_SLIP', 7000);
+       , 'PAYMENT_SLIP', 7000, 3000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence
-                    , payment, user_who_made_the_reservation_id)
+                    , payment, user_who_made_the_reservation_id, tourist_package_id )
     VALUES (5000, 6 , '2024-07-18',  'CONFIRMED', 100000, 'Petar', 'Pekic', 'petar@example.com', '0659148244', '182435133445', 'Beograd'
-       , 'PAYMENT_SLIP', 5000);
+       , 'PAYMENT_SLIP', 5000, 3000);
 
 
 INSERT INTO other_emails(reservation_id, email)
