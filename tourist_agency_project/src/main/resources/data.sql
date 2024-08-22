@@ -43,7 +43,7 @@ INSERT INTO Category(id, category_name, parent_category_id) VALUES (2001, 'Medit
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
                             schedule, price_includes, price_does_not_include, category_id, organizer_id)
     VALUES (1000, 'Toscana', 'Discover the Charm of Tuscany- Tuscany, a region in central Italy, is a dream destination for travelers seeking a blend of history, culture  and breathtaking landscapes. With its rolling hills, vineyards, and historic cities, Tuscany offers a unique experience that captures the essence of Italy.',
-            6, '2024-10-20', '2024-10-26', 15000, 80, '1.  departure   2. FLORENCE - MONTECATINI TERME   3. MONTECATINI - SIENA - S. ĐIMINJANO   4. MONTECATINI TERME – LUCA - PIZA   5. MONTECATINI - CINQUE TERRE   6. returning to Serbia '
+            6, '2024-10-20', '2024-10-26', 150, 80, '1.  departure   2. FLORENCE - MONTECATINI TERME   3. MONTECATINI - SIENA - S. ĐIMINJANO   4. MONTECATINI TERME – LUCCA - PISA   5. MONTECATINI - CINQUE TERRE   6. returning to Serbia '
            , 'Tourist tax, international health insurance'
            , 'Optional excursion', 1002,2000);
 
@@ -51,7 +51,7 @@ INSERT INTO tourist_package(id, package_name, package_description, time, date_of
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
                             schedule, price_includes, price_does_not_include, category_id, organizer_id)
 VALUES (2000, 'Athens', 'Athens – The capital of Greece and the center of the ancient world, Athens is the perfect place for your next adventure. With its rich history, ancient ruins, incredible food, and quintessential Mediterranean charm, it''s hard not to fall in love with Athens. From the Acropolis to the countless narrow streets of Monastiraki, where you can find all kinds of trinkets and souvenirs, and even pieces of history, to the ruins of Hadrian''s Library and the ancient Agora, you''ll never be bored in Athens. Considering that the Aegean Sea is just about 20 minutes away by car, and beaches like Glyfada are breathtaking, there''s no better expedition!',
-        3, '2024-10-20', '2024-10-26', 20000, 40, '1.departure   2.,3.,4.,5.,   6. - returning to Serbia '
+        3, '2024-10-20', '2024-10-26', 200, 40, '1.departure   2.,3.,4.,5.,   6. - returning to Serbia '
        , 'Tourist tax, international health insurance'
        , 'Optional excursion', 1001,2000);
 
@@ -59,7 +59,7 @@ VALUES (2000, 'Athens', 'Athens – The capital of Greece and the center of the 
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
                             schedule, price_includes, price_does_not_include, category_id, organizer_id)
 VALUES (3000, 'Japan','Japan offers a fascinating blend of traditional and modern culture. Visit Tokyo, a vibrant metropolis with dazzling neon lights and impressive temples like Senso-ji. Experience tranquility in Kyoto, home to ancient Buddhist temples and beautiful Zen gardens. Don’t miss the natural beauty of Mount Fuji and lush tea plantations.' ,
-        12, '2024-9-14', '2024-9-26', 100000, 20,'1st DAY - Departure; 2nd DAY - Arrival in Tokyo; explore Asakusa and Senso-ji Temple; 3rd DAY - Tokyo; visit Shibuya and Shinjuku; 4th DAY - Tokyo; explore Akihabara and Ueno Park; 5th DAY - Tokyo; day trip to Odaiba; 6th DAY - Travel to Kyoto; visit Fushimi Inari Taisha Shrine; 7th DAY - Kyoto; explore Kinkaku-ji and Ryoan-ji; 8th DAY - Kyoto; visit Gion district and Kiyomizu-dera; 9th DAY - Travel to Osaka; visit Osaka Castle; 10th DAY - Osaka; explore Dotonbori and Shinsaibashi; 11th DAY - Day trip to Himeji; visit Himeji Castle; 12th DAY - Return home.'
+        12, '2024-9-14', '2024-9-26', 1000, 20,'1st DAY - Departure; 2nd DAY - Arrival in Tokyo; explore Asakusa and Senso-ji Temple; 3rd DAY - Tokyo; visit Shibuya and Shinjuku; 4th DAY - Tokyo; explore Akihabara and Ueno Park; 5th DAY - Tokyo; day trip to Odaiba; 6th DAY - Travel to Kyoto; visit Fushimi Inari Taisha Shrine; 7th DAY - Kyoto; explore Kinkaku-ji and Ryoan-ji; 8th DAY - Kyoto; visit Gion district and Kiyomizu-dera; 9th DAY - Travel to Osaka; visit Osaka Castle; 10th DAY - Osaka; explore Dotonbori and Shinsaibashi; 11th DAY - Day trip to Himeji; visit Himeji Castle; 12th DAY - Return home.'
        , 'Tourist tax, international health insurance'
        , 'Optional excursion', 5000, 3000);
 
@@ -89,27 +89,27 @@ INSERT INTO traveler_tourist_package(traveler_id, tourist_package_id) VALUES (70
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
                      place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id )
-    VALUES (1000, 3 , '2024-07-28',  'ON_HOLD', 15000, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
+    VALUES (1000, 3 , '2024-07-28',  'ON_HOLD', 150, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
        , 'Beograd', 'PAYMENT_SLIP', 4000,1000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
                      place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id  )
-    VALUES (2000, 3, '2024-08-10',  'CONFIRMED', 15000, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
+    VALUES (2000, 3, '2024-08-10',  'CONFIRMED', 150, 'Mirko', 'Mirkovic', 'mire@example.com', '06591482111', '182435142445', 'Beograd'
        , 'Beograd', 'PAYMENT_SLIP', 4000, 1000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                     , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence,
                     place_of_entry_into_the_bus, payment, user_who_made_the_reservation_id, tourist_package_id  )
-    VALUES (3000, 3 , '2024-07-28',  'REJECTED', 20000, 'Aleksa', 'Aleksic', 'aleksa@example.com', '065914823', '182435142555', 'Sombor'
+    VALUES (3000, 3 , '2024-07-28',  'REJECTED', 200, 'Aleksa', 'Aleksic', 'aleksa@example.com', '065914823', '182435142555', 'Sombor'
        , 'Novi Sad', 'PAYMENT_CARD', 6000,2000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                     , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence
                     , payment, user_who_made_the_reservation_id, tourist_package_id  )
-    VALUES (4000, 4 , '2024-07-20',  'CONFIRMED', 100000, 'Maja', 'Maric', 'maja@example.com', '0659148211', '180235142445', 'Jagodina'
+    VALUES (4000, 4 , '2024-07-20',  'CONFIRMED', 1000, 'Maja', 'Maric', 'maja@example.com', '0659148211', '180235142445', 'Jagodina'
        , 'PAYMENT_SLIP', 7000, 3000);
 INSERT INTO Reservation(id, number_of_people, date_of_reservation, reservation_status, reservation_price, passenger_name
                      , passenger_last_name, passenger_email, passenger_number, passenger_jmbg, place_of_residence
                     , payment, user_who_made_the_reservation_id, tourist_package_id )
-    VALUES (5000, 6 , '2024-07-18',  'CONFIRMED', 100000, 'Petar', 'Pekic', 'petar@example.com', '0659148244', '182435133445', 'Beograd'
+    VALUES (5000, 6 , '2024-07-18',  'CONFIRMED', 1000, 'Petar', 'Pekic', 'petar@example.com', '0659148244', '182435133445', 'Beograd'
        , 'PAYMENT_SLIP', 5000, 3000);
 
 
@@ -142,6 +142,20 @@ INSERT INTO other_emails(reservation_id, email)
         (5000, 'vasilije@example.com'),
         (5000, 'davor@example.com'),
         (5000, 'mile@example.com');
+
+
+INSERT INTO trip(id, trip_name, trip_description, trip_price, tourist_package_id)
+    VALUES (1000, 'Florence', 'Santa Maria del Fiore Cathedral (Duomo), Uffizi Gallery, Ponte Vecchio, Palazzo Pitti and Boboli Gardens
+            Galleria dell Accademia...', 30, 1000 );
+INSERT INTO trip(id, trip_name, trip_description, trip_price, tourist_package_id)
+    VALUES (2000, 'Siena', 'Piazza del Campo, Siena Cathedral, Torre del Mangia, Palazzo Pubblico, Basilica of San Domenico...', 30, 1000 );
+INSERT INTO trip(id, trip_name, trip_description, trip_price, tourist_package_id)
+    VALUES (3000, 'Lucca-Pisa', 'Leaning Tower of Pisa, Piazza dei Miracoli, Pisa Cathedral...', 35, 1000 );
+INSERT INTO trip(id, trip_name, trip_description, trip_price, tourist_package_id)
+    VALUES (4000, 'Cinque terre', 'Monterosso al Mare, Vernazza, Riomaggiore...', 40, 1000 );
+INSERT INTO trip(id, trip_name, trip_description, trip_price, tourist_package_id)
+    VALUES (5000, 'Acropolis of Athens', 'The Acropolis is an ancient citadel in Athens renowned for its historic ruins, including the Parthenon, and its significant role in classical Greek culture...'
+           , 20, 2000 );
 
 /*
 INSERT INTO Category(id, category_name)
