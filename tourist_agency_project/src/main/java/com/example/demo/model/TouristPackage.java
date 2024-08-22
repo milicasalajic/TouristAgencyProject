@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "Tourist_package")
+@Table(name = "tourist_package")
 public class TouristPackage {
 
     @Id
@@ -72,12 +72,12 @@ public class TouristPackage {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "traveler_touristPackage",
+            name = "traveler_tourist_package",
             joinColumns = {
-                    @JoinColumn(name = "traveler_id", referencedColumnName = "id")
+                    @JoinColumn(name = "tourist_package_id", referencedColumnName = "id")
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "touristPackage_id", referencedColumnName = "id")
+                    @JoinColumn(name = "traveler_id", referencedColumnName = "id")
             }
     )
     private Set<Traveler> traveler=new HashSet<>();
