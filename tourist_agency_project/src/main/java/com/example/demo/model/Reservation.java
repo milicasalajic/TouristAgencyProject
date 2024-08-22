@@ -26,7 +26,7 @@ public class Reservation {
     @Enumerated(EnumType.STRING)
     private ReservationStatus reservationStatus;
 
-    @Column
+    @Column(nullable = false)
     private Double reservationPrice;
 
     @Column(nullable = false)

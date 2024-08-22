@@ -15,7 +15,7 @@ public class Destination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String destinationName;
 
     @Lob//longer text
@@ -25,11 +25,12 @@ public class Destination {
     @Column
     private String destinationCountry;
 
-    @Column
+    @Column(nullable = false)
     private  String hotelName;
 
     @ElementCollection
     @CollectionTable(name = "hotelPictures", joinColumns = @JoinColumn(name = "destination_id"))
+    @Column(name = "hotel_picture")
     private Set<String> hotelPictures;
 
 //mappedBy = "destination"

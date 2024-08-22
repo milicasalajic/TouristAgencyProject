@@ -50,6 +50,24 @@ INSERT INTO Destination(id, destination_name, destination_description, destinati
             'Japan', 'Hotel The One Shinimamiya');
 
 
+INSERT INTO  hotel_pictures(destination_id, hotel_picture)
+    VALUES
+        (1000, 'hp1'),
+        (1000, 'hp2'),
+        (1000, 'hp3');
+INSERT INTO  hotel_pictures(destination_id, hotel_picture)
+VALUES
+    (2000, 'hp1'),
+    (2000, 'hp2'),
+    (2000, 'hp3');
+INSERT INTO  hotel_pictures(destination_id, hotel_picture)
+VALUES
+    (3000, 'hp1'),
+    (3000, 'hp2'),
+    (3000, 'hp3');
+
+
+
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
                             schedule, price_includes, price_does_not_include,travel_notes, category_id, organizer_id, destination_id)
     VALUES (1000, 'Toscana', 'Discover the Charm of Tuscany- Tuscany, a region in central Italy, is a dream destination for travelers seeking a blend of history, culture  and breathtaking landscapes. With its rolling hills, vineyards, and historic cities, Tuscany offers a unique experience that captures the essence of Italy.',
