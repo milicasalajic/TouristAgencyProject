@@ -18,6 +18,7 @@ public class Destination {
     @Column
     private String destinationName;
 
+    @Lob//longer text
     @Column
     private String destinationDescription;
 
@@ -31,7 +32,8 @@ public class Destination {
     @CollectionTable(name = "hotelPictures", joinColumns = @JoinColumn(name = "destination_id"))
     private Set<String> hotelPictures;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//mappedBy = "destination"
+    @OneToOne( fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private TouristPackage touristPackage;
 
 }

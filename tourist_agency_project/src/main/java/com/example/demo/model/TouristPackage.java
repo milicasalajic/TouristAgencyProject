@@ -64,7 +64,8 @@ public class TouristPackage {
     @OneToMany(mappedBy = "touristPackage", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private  Set<Trip> trips;
 
-    @OneToOne(mappedBy = "touristPackage", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "destination_id", unique = true)
     private Destination destination;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

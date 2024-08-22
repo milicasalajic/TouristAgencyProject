@@ -40,28 +40,38 @@ INSERT INTO Category(id, category_name, parent_category_id) VALUES (1003, 'Monte
 INSERT INTO Category(id, category_name, parent_category_id) VALUES (2001, 'Mediterranean cruise', 2000);
 
 
+INSERT INTO Destination(id, destination_name, destination_description, destination_country, hotel_name )
+    VALUES (1000, 'Montecatini', 'Montecatini terme', 'Italy', 'Hotel Le Fonti 4*');
+INSERT INTO Destination(id, destination_name, destination_description, destination_country, hotel_name )
+    VALUES (2000, 'Athens', 'Athens – The capital of Greece and the center of the ancient world, Athens is the perfect place for your next adventure. With its rich history, ancient ruins, incredible food, and quintessential Mediterranean charm, it''s hard not to fall in love with Athens.',
+            'Greece', 'Hotel Lido 2*');
+INSERT INTO Destination(id, destination_name, destination_description, destination_country, hotel_name )
+    VALUES (3000, 'Osaka', 'It is the capital of and most populous city in Osaka Prefecture, and the third-most populous city in Japan, following the special wards of Tokyo and Yokohama.',
+            'Japan', 'Hotel The One Shinimamiya');
+
+
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
-                            schedule, price_includes, price_does_not_include, category_id, organizer_id)
+                            schedule, price_includes, price_does_not_include,travel_notes, category_id, organizer_id, destination_id)
     VALUES (1000, 'Toscana', 'Discover the Charm of Tuscany- Tuscany, a region in central Italy, is a dream destination for travelers seeking a blend of history, culture  and breathtaking landscapes. With its rolling hills, vineyards, and historic cities, Tuscany offers a unique experience that captures the essence of Italy.',
             6, '2024-10-20', '2024-10-26', 150, 80, '1.  departure   2. FLORENCE - MONTECATINI TERME   3. MONTECATINI - SIENA - S. ĐIMINJANO   4. MONTECATINI TERME – LUCCA - PISA   5. MONTECATINI - CINQUE TERRE   6. returning to Serbia '
            , 'Tourist tax, international health insurance'
-           , 'Optional excursion', 1002,2000);
+           , 'Optional excursion','With breakfast', 1002,2000, 1000);
 
 
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
-                            schedule, price_includes, price_does_not_include, category_id, organizer_id)
+                            schedule, price_includes, price_does_not_include, category_id, organizer_id, destination_id)
 VALUES (2000, 'Athens', 'Athens – The capital of Greece and the center of the ancient world, Athens is the perfect place for your next adventure. With its rich history, ancient ruins, incredible food, and quintessential Mediterranean charm, it''s hard not to fall in love with Athens. From the Acropolis to the countless narrow streets of Monastiraki, where you can find all kinds of trinkets and souvenirs, and even pieces of history, to the ruins of Hadrian''s Library and the ancient Agora, you''ll never be bored in Athens. Considering that the Aegean Sea is just about 20 minutes away by car, and beaches like Glyfada are breathtaking, there''s no better expedition!',
         3, '2024-10-20', '2024-10-26', 200, 40, '1.departure   2.,3.,4.,5.,   6. - returning to Serbia '
        , 'Tourist tax, international health insurance'
-       , 'Optional excursion', 1001,2000);
+       , 'Optional excursion', 1001,2000, 2000);
 
 
 INSERT INTO tourist_package(id, package_name, package_description, time, date_off_departure, return_date, package_price, capacity,
-                            schedule, price_includes, price_does_not_include, category_id, organizer_id)
+                            schedule, price_includes, price_does_not_include, category_id, organizer_id, destination_id)
 VALUES (3000, 'Japan','Japan offers a fascinating blend of traditional and modern culture. Visit Tokyo, a vibrant metropolis with dazzling neon lights and impressive temples like Senso-ji. Experience tranquility in Kyoto, home to ancient Buddhist temples and beautiful Zen gardens. Don’t miss the natural beauty of Mount Fuji and lush tea plantations.' ,
         12, '2024-9-14', '2024-9-26', 1000, 20,'1st DAY - Departure; 2nd DAY - Arrival in Tokyo; explore Asakusa and Senso-ji Temple; 3rd DAY - Tokyo; visit Shibuya and Shinjuku; 4th DAY - Tokyo; explore Akihabara and Ueno Park; 5th DAY - Tokyo; day trip to Odaiba; 6th DAY - Travel to Kyoto; visit Fushimi Inari Taisha Shrine; 7th DAY - Kyoto; explore Kinkaku-ji and Ryoan-ji; 8th DAY - Kyoto; visit Gion district and Kiyomizu-dera; 9th DAY - Travel to Osaka; visit Osaka Castle; 10th DAY - Osaka; explore Dotonbori and Shinsaibashi; 11th DAY - Day trip to Himeji; visit Himeji Castle; 12th DAY - Return home.'
        , 'Tourist tax, international health insurance'
-       , 'Optional excursion', 5000, 3000);
+       , 'Optional excursion', 5000, 3000,3000);
 
 
 INSERT INTO pictures_of_the_destination(package_id, destination_picture)
