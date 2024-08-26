@@ -19,11 +19,11 @@ public class TouristPackage {
     private Long id;
 
     @Column(nullable = false)
-    private String PackageName;
+    private String packageName;
 
     @Lob//longer text
     @Column
-    private String PackageDescription;
+    private String packageDescription;
 
     @Column(nullable = false)
     private Integer time;
@@ -35,15 +35,15 @@ public class TouristPackage {
     private Date returnDate;
 
     @Column(nullable = false)
-    private Double PackagePrice;
+    private Double packagePrice;
 
     @Column(nullable = false)
-    private Integer Capacity;
+    private Integer capacity;
 
     @ElementCollection
     @CollectionTable(name = "picturesOfTheDestination", joinColumns = @JoinColumn(name = "package_id"))
     @Column(name = "destination_picture")
-    private Set<String> PicturesOfTheDestination;
+    private Set<String> picturesOfTheDestination;
 
     @Lob//longer text
     @Column

@@ -14,13 +14,13 @@ public class Trip {
     private Long id;
 
     @Column(nullable = false)
-    private String TripName;
+    private String tripName;
 
     @Column
-    private String TripDescription;
+    private String tripDescription;
 
     @Column
-    private Double TripPrice;
+    private Double tripPrice;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private TouristPackage touristPackage;
