@@ -74,7 +74,7 @@ public class TouristPackageService {
     }
 
     public List<AllPackagesDTO> findByDateRange(Date date) {
-        List<TouristPackage> packages = touristPackageRepository. findByDateOffDepartureLessThanEqualAndReturnDateGreaterThanEqual(date, date);
+        List<TouristPackage> packages = touristPackageRepository.findByDateRange(date);
         return mapToDTO(packages);
     }
 

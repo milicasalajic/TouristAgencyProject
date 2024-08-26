@@ -4,6 +4,7 @@ package com.example.demo.controller;
 import com.example.demo.DTO.AllPackagesDTO;
 import com.example.demo.service.TouristPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +34,8 @@ public class TouristPackageController {
             @RequestParam(required = false) String name,
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice,
-            @RequestParam(required = false) Date packageDate
+            //@RequestParam(required = false) Date packageDate
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date packageDate
     ) {
 
         List<AllPackagesDTO> packagesDTO = new ArrayList<>();
