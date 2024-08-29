@@ -1,17 +1,16 @@
 package com.example.demo.service;
 
-import com.example.demo.DTO.AllPackagesDTO;
-import com.example.demo.DTO.CategoryDTO;
+import com.example.demo.DTO.*;
+import com.example.demo.error.PackageNotFoundException;
 import com.example.demo.model.Category;
+import com.example.demo.model.Destination;
 import com.example.demo.model.TouristPackage;
+import com.example.demo.model.Trip;
 import com.example.demo.repository.TouristPackageRepository;
-import jakarta.persistence.Access;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class TouristPackageService {
@@ -93,7 +92,6 @@ public class TouristPackageService {
             packageDTO.setPackagePrice(touristPackage.getPackagePrice());
             packageDTO.setId(touristPackage.getId());
 
-            // Mapiranje kategorije u DTO
             Category category = touristPackage.getCategory();
             if (category != null) {
                 CategoryDTO categoryDTO = new CategoryDTO();
@@ -111,4 +109,51 @@ public class TouristPackageService {
         return packagesDTO;
     }
 
+    public TouristPackageDTO getPackage(Long id) {
+
+        Optional<TouristPackage> foundPackage=touristPackageRepository.findById(id);
+        if (!foundPackage.isPresent()) {
+            throw new PackageNotFoundException("Package not found.");
+        }
+        TouristPackage touristPackage=foundPackage.get();
+        TouristPackageDTO touristPackageDTO=new TouristPackageDTO();
+        touristPackageDTO.setPackageName(touristPackage.getPackageName());
+        touristPackageDTO.setPackageDescription(touristPackage.getPackageDescription());
+        touristPackageDTO.setPackagePrice(touristPackage.getPackagePrice());
+        touristPackageDTO.setId(touristPackage.getId());
+        touristPackageDTO.setTime(touristPackage.getTime());
+        touristPackageDTO.setDateOffDeparture(touristPackage.getDateOffDeparture());
+        touristPackageDTO.setReturnDate(touristPackage.getReturnDate());
+        touristPackageDTO.setPicturesOfTheDestination(touristPackage.getPicturesOfTheDestination());
+        touristPackageDTO.setDestination(touristPackageDTO.getDestination());
+        touristPackageDTO.setPriceDoesNotInclude(touristPackage.getPriceDoesNotInclude());
+        touristPackageDTO.setPriceIncludes(touristPackage.getPriceIncludes());
+        touristPackageDTO.setSchedule(touristPackage.getSchedule());
+        touristPackageDTO.setTravelNotes(touristPackage.getTravelNotes());
+
+        Destination destination=touristPackage.getDestination();
+        if(destination!=null){
+            DestinationDTO destinationDTO=new DestinationDTO();
+            destinationDTO.setDestinationName(destination.getDestinationName());
+            destinationDTO.setDestinationCountry(destination.getDestinationCountry());
+            destinationDTO.setDestinationDescription(destination.getDestinationDescription());
+            destinationDTO.setId(destination.getId());
+            destinationDTO.setHotelName(destination.getHotelName());
+            destinationDTO.setHotelPictures(destination.getHotelPictures());
+            touristPackageDTO.setDestination(destinationDTO);
+        }
+        Set<TripDTO> tripDTOSet = new HashSet<>();
+        for (Trip trip : touristPackage.getTrips()) {
+            TripDTO tripDTO = new TripDTO();
+
+            tripDTO.setTripName(trip.getTripName());
+            tripDTO.setTripDescription(trip.getTripDescription());
+            tripDTO.setId(trip.getId());
+            tripDTO.setTripPrice(trip.getTripPrice());
+
+            tripDTOSet.add(tripDTO);
+        }
+        touristPackageDTO.setTrips(tripDTOSet);
+        return touristPackageDTO;
+    }
 }

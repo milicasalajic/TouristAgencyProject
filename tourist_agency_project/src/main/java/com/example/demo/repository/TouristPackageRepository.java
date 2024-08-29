@@ -23,7 +23,7 @@ public interface TouristPackageRepository extends JpaRepository<TouristPackage, 
 
  //  List<TouristPackage> findByDateOffDepartureBeforeAndReturnDateAfter(Date date, Date date1);
 //  List<TouristPackage> findByDateOffDepartureLessThanEqualAndReturnDateGreaterThanEqual(Date dateOffDeparture, Date returnDate);
- @Query("SELECT t FROM TouristPackage t WHERE t.dateOffDeparture <= :date AND t.returnDate >= :date")
- List<TouristPackage> findByDateRange(@Param("date") Date date);
+    @Query("SELECT t FROM TouristPackage t WHERE t.dateOffDeparture <= :date AND t.returnDate >= :date")
+    List<TouristPackage> findByDateRange(@Param("date") Date date);
 
 }

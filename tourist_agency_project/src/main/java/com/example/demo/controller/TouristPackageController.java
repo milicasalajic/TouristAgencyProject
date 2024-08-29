@@ -2,14 +2,14 @@ package com.example.demo.controller;
 
 
 import com.example.demo.DTO.AllPackagesDTO;
+import com.example.demo.DTO.TouristPackageDTO;
+import com.example.demo.error.PackageNotFoundException;
 import com.example.demo.service.TouristPackageService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,4 +60,12 @@ public class TouristPackageController {
 
         return ResponseEntity.ok(packagesDTO);
     }
+    @GetMapping("/package/{id}")
+    public TouristPackageDTO getPackage(@PathVariable Long id)throws PackageNotFoundException {
+
+        TouristPackageDTO foundPackage=touristPackageService.getPackage(id);
+
+        return foundPackage;
+    }
+
 }
