@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.DTO.AllCategoriesDTO;
 import com.example.demo.DTO.AllPackagesDTO;
 import com.example.demo.DTO.CategoryDTO;
 import com.example.demo.error.CategoryNotFoundException;
@@ -9,9 +10,7 @@ import com.example.demo.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CategoryService {
@@ -48,13 +47,27 @@ public class CategoryService {
         }
         categoryDTO.setTouristPackages(allPackagesDTO);
 
-        Set<CategoryDTO> subcategoryDTOs = new HashSet<>();
+        Set<CategoryDTO> subcategoryDTO = new HashSet<>();
         for (Category subcategory : category.getSubcategories()) {
             // Ovde rekurzivno pozivamo mapToDTO da mapiramo podkategorije
-            subcategoryDTOs.add(mapToDTO(subcategory));
+            subcategoryDTO.add(mapToDTO(subcategory));
         }
-        categoryDTO.setSubcategories(subcategoryDTOs);
+        categoryDTO.setSubcategories(subcategoryDTO);
 
         return categoryDTO;
     }
+
+    public List<AllCategoriesDTO> findAll() {
+        List<Category> categories=categoryRepository.findAll();
+        List<AllCategoriesDTO> categoriesDTO=new ArrayList<>();
+        for (Category c: categories){
+           AllCategoriesDTO categoryDTO=new AllCategoriesDTO();
+           categoryDTO.setCategoryName(c.getCategoryName());
+           categoriesDTO.add(categoryDTO);
+
+
+        }
+        return categoriesDTO;
+    }
+
 }
