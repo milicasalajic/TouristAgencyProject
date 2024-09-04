@@ -31,7 +31,7 @@ public class AllPackagesDTO {
 
     private Double PackagePrice;
 
-    private CategoryDTO category;
+    private AllCategoriesDTO category;
 
 }
 

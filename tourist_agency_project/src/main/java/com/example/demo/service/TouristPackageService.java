@@ -31,7 +31,7 @@ public class TouristPackageService {
             packageDTO.setId(touristPackage.getId());
             Category category = touristPackage.getCategory();
             if (category != null) {
-                CategoryDTO categoryDTO = new CategoryDTO();
+                AllCategoriesDTO categoryDTO = new AllCategoriesDTO();
                 categoryDTO.setCategoryName(category.getCategoryName());
                 packageDTO.setCategory(categoryDTO);
             }
@@ -94,8 +94,9 @@ public class TouristPackageService {
 
             Category category = touristPackage.getCategory();
             if (category != null) {
-                CategoryDTO categoryDTO = new CategoryDTO();
+                AllCategoriesDTO categoryDTO = new AllCategoriesDTO();
                 categoryDTO.setCategoryName(category.getCategoryName());
+
                 packageDTO.setCategory(categoryDTO);
             }
 

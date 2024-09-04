@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface TouristPackageRepository extends JpaRepository<TouristPackage, Long> {
     List<TouristPackage> findByPackageNameContainingIgnoreCaseAndPackagePriceBetweenAndDateOffDepartureBeforeAndReturnDateAfter(String name, Double minPrice, Double maxPrice, Date date, Date date1);
@@ -26,4 +27,5 @@ public interface TouristPackageRepository extends JpaRepository<TouristPackage, 
     @Query("SELECT t FROM TouristPackage t WHERE t.dateOffDeparture <= :date AND t.returnDate >= :date")
     List<TouristPackage> findByDateRange(@Param("date") Date date);
 
+    Optional<TouristPackage> findByPackageName(String packageName);
 }
