@@ -2,6 +2,8 @@ package com.example.demo.DTO;
 
 import com.example.demo.model.Category;
 import com.example.demo.model.TouristPackage;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -20,7 +22,7 @@ public class CategoryDTO {
 
     private String categoryName;
 
-    private CategoryDTO parentCategory;
+ //   private CategoryDTO parentCategory;
 
     private Set<CategoryDTO> subcategories;
 
