@@ -29,7 +29,7 @@ public class ReservationService {
 
         TouristPackage touristPackage = touristPackageOptional.get();
 
-        if(touristPackageOptional.isEmpty()){
+        if(touristPackage==null){
             throw new PackageNotFoundException("Turisticki paket koji zelite da rezervisete ne postoji.");
         }
         Reservation reservation = new Reservation();
