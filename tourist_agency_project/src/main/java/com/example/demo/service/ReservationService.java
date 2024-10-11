@@ -23,15 +23,14 @@ public class ReservationService {
     @Autowired
     private TouristPackageRepository touristPackageRepository;
 
-    public ReservationResponseDTO createReservation(ReservationRequestDTO request) {
+    public ReservationResponseDTO createReservation(ReservationRequestDTO request) throws PackageNotFoundException {
 
         Optional<TouristPackage> touristPackageOptional = touristPackageRepository.findByPackageName(request.getPackageName());
 
-        TouristPackage touristPackage = touristPackageOptional.get();
-
-        if(touristPackage==null){
-            throw new PackageNotFoundException("Turisticki paket koji zelite da rezervisete ne postoji.");
+        if(!touristPackageOptional.isPresent()){
+            throw new PackageNotFoundException("The tourist package you want to reserve does not exist.");
         }
+        TouristPackage touristPackage = touristPackageOptional.get();
         Reservation reservation = new Reservation();
         reservation.setNumberOfPeople(request.getNumberOfPeople());
         reservation.setPassengerName(request.getPassengerName());

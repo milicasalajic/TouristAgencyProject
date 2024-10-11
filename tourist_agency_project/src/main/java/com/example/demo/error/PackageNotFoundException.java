@@ -1,6 +1,8 @@
 package com.example.demo.error;
 
-public class PackageNotFoundException extends RuntimeException {//ResourceNotFoundException
+import org.apache.coyote.BadRequestException;
+
+public class PackageNotFoundException extends BadRequestException {//ResourceNotFoundException
     public PackageNotFoundException(String message)  {
         super(message);
     }

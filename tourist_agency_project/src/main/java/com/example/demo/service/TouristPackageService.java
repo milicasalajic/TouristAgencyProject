@@ -110,7 +110,7 @@ public class TouristPackageService {
         return packagesDTO;
     }
 
-    public TouristPackageDTO getPackage(Long id) {
+    public TouristPackageDTO getPackage(Long id) throws PackageNotFoundException {
 
         Optional<TouristPackage> foundPackage=touristPackageRepository.findById(id);
         if (!foundPackage.isPresent()) {

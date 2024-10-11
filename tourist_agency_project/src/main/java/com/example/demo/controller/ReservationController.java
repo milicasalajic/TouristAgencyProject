@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.ReservationRequestDTO;
 import com.example.demo.DTO.ReservationResponseDTO;
+import com.example.demo.error.PackageNotFoundException;
 import com.example.demo.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +19,9 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @PostMapping("/bookTouristPackage")
-    public ResponseEntity<ReservationResponseDTO> createReservation(@RequestBody ReservationRequestDTO request) {
-        System.out.println("ulazi");
+    public ResponseEntity<ReservationResponseDTO> createReservation(@RequestBody ReservationRequestDTO request) throws PackageNotFoundException {
+
         ReservationResponseDTO response = reservationService.createReservation(request);
-        System.out.println("pre slanja odgovora");
         return ResponseEntity.ok(response);
     }
 }
