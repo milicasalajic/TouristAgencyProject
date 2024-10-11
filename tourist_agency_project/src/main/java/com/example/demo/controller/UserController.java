@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.LoginUserDTO;
 import com.example.demo.DTO.RegistrationUserDTO;
+import com.example.demo.DTO.UpdateUserDTO;
 import com.example.demo.error.EmailAlreadyExistsException;
 import com.example.demo.error.PasswordMismatchException;
 import com.example.demo.error.UserAlreadyExistsException;
@@ -13,13 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -76,5 +75,22 @@ public class UserController {
 
         session.invalidate();
         return new ResponseEntity("Logout successful.", HttpStatus.OK);
+    }
+
+    @PutMapping("/updateUser")
+    public ResponseEntity<?> updateUser( @RequestBody UpdateUserDTO updatedUser, HttpSession session) throws PasswordMismatchException, UserNotFoundException {
+
+        User user = (User) session.getAttribute("user");
+
+        if(user == null){
+            throw new UserNotFoundException("Only logged users can update profile.");
+        }
+        if(!updatedUser.getPassword().equals(user.getPassword())){
+            throw new PasswordMismatchException("Incorect password.");
+        }
+        //find if updatet username exsist
+
+        userService.updateUser(user,updatedUser );
+        return ResponseEntity.ok("Update succesful");
     }
 }
