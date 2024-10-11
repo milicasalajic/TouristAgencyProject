@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.DTO.RegistrationUserDTO;
 import com.example.demo.DTO.UpdateUserDTO;
+import com.example.demo.error.UserAlreadyExistsException;
 import com.example.demo.error.UserNotFoundException;
 import com.example.demo.model.Reservation;
 import com.example.demo.model.Role;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -54,7 +56,13 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    public void updateUser(User user, UpdateUserDTO updatedUser) {
+    public void updateUser(User user, UpdateUserDTO updatedUser) throws UserAlreadyExistsException {
+
+        Optional<User> existingUser = userRepository.findByUsername(updatedUser.getUsername());
+
+        if (existingUser.isPresent() && !existingUser.get().getId().equals(user.getId())) {
+            throw new UserAlreadyExistsException("Username already exists."); // Prilagodi izuzetak
+        }
 
         user.setUsername(updatedUser.getUsername());
         user.setName(updatedUser.getName());

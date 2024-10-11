@@ -78,7 +78,7 @@ public class UserController {
     }
 
     @PutMapping("/updateUser")
-    public ResponseEntity<?> updateUser( @RequestBody UpdateUserDTO updatedUser, HttpSession session) throws PasswordMismatchException, UserNotFoundException {
+    public ResponseEntity<?> updateUser( @RequestBody UpdateUserDTO updatedUser, HttpSession session) throws PasswordMismatchException, UserNotFoundException, UserAlreadyExistsException {
 
         User user = (User) session.getAttribute("user");
 
